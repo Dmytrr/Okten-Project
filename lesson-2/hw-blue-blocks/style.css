@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.container{
+    width: 530px;
+    height: 860px;
+    box-sizing: border-box;
+    color: white;
+}
+.widgets-1{
+    height: 25%;
+    background: cornflowerblue;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 90px;
+}
+.widgets-3{
+    height: 25%;
+    box-sizing: border-box;
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+}
+.contacts{
+    height: 50%;
+    background: cornflowerblue;
+    box-sizing: border-box;
+    margin-top: 10px;
+    text-align: center;
+    font-size: x-large;
+    padding: 180px;
+}
+.big, .bigger, .huge{
+    width: 30%;
+    background: blue;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.big, .bigger{
+    margin-right: 10px;
+}
+.bigger, .huge{
+    margin-left: 10px;
+}
