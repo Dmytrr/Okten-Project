@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.container{
+    width: 900px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+.card{
+    width: 250px;
+    height: 300px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+}
+.card > div{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.header{
+    height: 33%;
+    font-size: x-large;
+    align-items: flex-end;
+}
+.text{
+    height: 33%;
+    margin: 10px;
+}
+.link{
+    width: 120px;
+    height: 34px;
+    border: 2px solid black;
+    align-items: center;
+    padding-top: 10px;
+}
