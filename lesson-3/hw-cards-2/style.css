@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.container{
+    width: 600px;
+    height: 400px;
+}
+.top{
+    height: 80px;
+    background: gainsboro;
+}
+.center{
+    height: 220px;
+    background: black;
+    position: relative;
+
+    display: flex;
+}
+.bottom{
+    height: 100px;
+    background: gainsboro;
+}
+.square{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background: cornflowerblue;
+
+    position: absolute;
+    bottom: -50px;
+}
+.first{
+    left: 120px;
+}
+.second{
+    right: 120px;
+}
+.third{
+    left: 250px;
+}
