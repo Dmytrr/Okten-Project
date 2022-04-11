@@ -1,0 +1,11 @@
+@media screen and (min-width: 0) and (max-width: 1000px){
+    .wrap{
+        flex-direction: column;
+    }
+    .from-b-to-g{
+        width: 100%;
+    }
+    .h{
+        width: 100%;
+    }
+}
