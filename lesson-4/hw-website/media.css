@@ -1,0 +1,51 @@
+@media screen and (min-width: 0) and (max-width: 1000px){
+    .content, .intro-ad, .types-products{
+        flex-direction: column;
+    }
+    .nav-tools, .nav{
+        width: 100%;
+        height: 120px;
+    }
+    .content{
+        width: 100%;
+        height: 1120px;
+    }
+    .baths-ad-products {
+        width: 100%;
+        height: 1000px;
+    }
+    .intro-ad{
+        width: 100%;
+        height: 250px;
+        flex-direction: row;
+    }
+    .types{
+        width: 100%;
+        height: 500px;
+    }
+    .products{
+        width: 100%;
+        height: 250px;
+        position: relative;
+    }
+    .locator{
+        width: 49.5%;
+        height: 120px;
+        margin-top: 5px;
+        position: absolute;
+        bottom: -563px;
+    }
+    .tools{
+        width: 49%;
+        height: 120px;
+        position: absolute;
+        bottom: -563px;
+        right: 0;
+    }
+    .footer{
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        bottom: -769px;
+    }
+}

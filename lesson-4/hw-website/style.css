@@ -1,0 +1,166 @@
+.container{
+    width: 100vw;
+    height: 760px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.top{
+    width: 100%;
+    height: 15%;
+
+    display: flex;
+    gap: 5px;
+}
+.logo{
+    width: 15%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.header{
+    width: 85%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.content{
+    width: 100%;
+    height: 70%;
+
+    display: flex;
+    gap: 5px;
+}
+.nav-tools{
+    width: 15%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.nav{
+    width: 100%;
+    height: 70%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.locator{
+    width: 100%;
+    height: 15%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.tools{
+    width: 100%;
+    height: 15%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.baths-ad-products{
+    width: 85%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.intro-ad{
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    gap: 5px;
+}
+.intro{
+    width: 75%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.ad{
+    width: 25%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.types-products{
+    width: 100%;
+    height: 75%;
+
+    display: flex;
+    gap: 5px;
+}
+.types{
+    width: 75%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.products{
+    width: 25%;
+    height: 100%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+}
+.footer{
+    width: 100%;
+    height: 15%;
+    background: cornflowerblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.number{
+    color: chocolate;
+}
