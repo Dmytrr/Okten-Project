@@ -11,7 +11,7 @@ console.log(a2 !== 0 ? 'Right' : 'Wrong');
 let a3 = 0;
 console.log(a3 !== 0 ? 'Right' : 'Wrong');
 
-let time = prompt('Enter the number of minutes');
+let time = +prompt('Enter the number of minutes');
 if (time >= 0 && time < 16) {
     console.log('First quarter')
 } else if (time > 15 && time < 31) {
@@ -24,7 +24,7 @@ if (time >= 0 && time < 16) {
     console.log('Wrong number')
 }
 
-let day = prompt('Enter the number of days');
+let day = +prompt('Enter the number of days');
 if (day > 0 && day < 11) {
     console.log('First decade')
 } else if (day > 10 && day < 21) {
@@ -35,33 +35,33 @@ if (day > 0 && day < 11) {
     console.log('Wrong number')
 }
 
-let dayOfWeek = prompt('Enter the number of days');
+let dayOfWeek = +prompt('Enter the number of days');
 switch (dayOfWeek) {
-    case '1':
+    case 1:
         console.log('Monday');
         break;
-    case '2':
+    case 2:
         console.log('Tuesday');
         break;
-    case '3':
+    case 3:
         console.log('Wednesday');
         break;
-    case '4':
+    case 4:
         console.log('Thursday');
         break;
-    case '5':
+    case 5:
         console.log('Friday');
         break;
-    case '6':
+    case 6:
         console.log('Saturday');
         break;
-    case '7':
+    case 7:
         console.log('Sunday');
         break;
     default:
         console.log('Wrong number')
 }
 
-let number1 = prompt('Enter first number');
-let number2 = prompt('Enter second number');
+let number1 = +prompt('Enter first number');
+let number2 = +prompt('Enter second number');
 console.log(number1 >= number2 ? number1 : number2)
