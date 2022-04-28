@@ -25,9 +25,11 @@ function createUL(li) {
 }
 
 function createUL2(li, num) {
+    document.write('<ul>')
     for (let i = 0; i < num; i++) {
-        document.write(`<ul><li>${li}</li><li>${li}</li><li>${li}</li></ul>`);
+        document.write(`<li>${li}</li>`);
     }
+    document.write('</ul>')
 }
 
 function iterator2(array) {
@@ -55,7 +57,7 @@ function iterator3a(arrayOfObjects) {
     }
 }
 
-function smallerNum(array) {
+function smallestNum(array) {
     let res = array[0];
     for (let i = 1; i < array.length; i++) {
         if (array[i] < res) {
