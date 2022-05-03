@@ -100,4 +100,17 @@ console.log(foo([9, 8, 0, 4], 0));
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
-
+let bizarre = (array) => {
+    let counter = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === 0) {
+            array.splice(i, 1);
+            counter++;
+        }
+    }
+    for (let i = 0; i < counter; i++) {
+        array.push(0);
+    }
+    return array;
+}
+console.log(bizarre([0, 2, 4, 0, 1, 0, 5]))
