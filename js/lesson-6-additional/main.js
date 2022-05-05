@@ -54,9 +54,25 @@ document.writeln(validator(n3));
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. Відсортувати його за допомоги sort
 // - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)
 //
-
+let randArr = length => {
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        arr.push(Math.round(Math.random() * 100));
+    }
+    return arr;
+}
+let nums = randArr(7);
+document.writeln(nums.sort((a, b) => a - b));
+document.writeln(nums.filter(a => a % 2 === 0));
 
 // - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
+let capitalize = str => {
+    let arr = str.split(' ');
+    let temp = arr.map(value => weird(value));
+    return temp.join(' ');
+}
+document.writeln(capitalize('lorem ipsum dolor sit amet.'))
+
 // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 // Протестувати на значеннях
 // someemail@gmail.com
@@ -67,6 +83,15 @@ document.writeln(validator(n3));
 // Примітка
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
 //
+let isValid = email => {
+    let toLowerCase = email.toLowerCase();
+    return toLowerCase.indexOf('@') > 0 && toLowerCase.indexOf('.') - toLowerCase.indexOf('@') >= 3;
+}
+document.writeln(isValid('someemail@gmail.com'));
+document.writeln(isValid('someemail@gmail.com'));
+document.writeln(isValid('someeMAIL@i.ua'));
+document.writeln(isValid('some.email@gmail.com'));
+
 // - є масивlet coursesArray = [
 //     {
 //         title: 'JavaScript Complex',
