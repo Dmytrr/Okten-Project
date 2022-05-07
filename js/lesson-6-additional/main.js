@@ -92,86 +92,105 @@ document.writeln(isValid('someemail@gmail.com'));
 document.writeln(isValid('someeMAIL@i.ua'));
 document.writeln(isValid('some.email@gmail.com'));
 
-// - є масивlet coursesArray = [
-//     {
-//         title: 'JavaScript Complex',
-//         monthDuration: 5,
-//         hourDuration: 909,
-//         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
-//     },
-//     {
-//         title: 'Java Complex',
-//         monthDuration: 6,
-//         hourDuration: 909,
-//         modules: ['html',
-//             'css',
-//             'js',
-//             'mysql',
-//             'mongodb',
-//             'angular',
-//             'aws',
-//             'docker',
-//             'git',
-//             'java core',
-//             'java advanced']
-//     },
-//     {
-//         title: 'Python Complex',
-//         monthDuration: 6,
-//         hourDuration: 909,
-//         modules: ['html',
-//             'css',
-//             'js',
-//             'mysql',
-//             'mongodb',
-//             'angular',
-//             'aws',
-//             'docker',
-//             'python core',
-//             'python advanced']
-//     },
-//     {
-//         title: 'QA Complex',
-//         monthDuration: 4,
-//         hourDuration: 909,
-//         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
-//     },
-//     {
-//         title: 'FullStack',
-//         monthDuration: 7,
-//         hourDuration: 909,
-//         modules: ['html',
-//             'css',
-//             'js',
-//             'mysql',
-//             'mongodb',
-//             'react',
-//             'angular',
-//             'aws',
-//             'docker',
-//             'git',
-//             'node.js',
-//             'python',
-//             'java']
-//     },
-//     {
-//         title: 'Frontend',
-//         monthDuration: 4,
-//         hourDuration: 909,
-//         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
-//     }
-// ];
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
 //
 //
 // відсортувати його в спадаючому порядку за кількістю елементів в полі modules
+console.log(coursesArray.sort((a, b) => b.modules.length - a.modules.length));
+
 //
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
+let count = (str, stringsearch) => {
+    let counter = 0;
+    for (const strElement of str) {
+        if (strElement === stringsearch) counter++;
+    }
+    return counter;
+}
+document.writeln(count("Астрономия это наука о небесных объектах", "о"));
+
 //
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
 //     let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
+let str3 = "Сила тяжести приложена к центру масс тела";
+let cutString2 = (str, n) => {
+    let toArr = str3.split(' ');
+    toArr.splice(n, toArr.length - n);
+    return toArr.join(' ');
+}
+document.writeln(cutString2(str3, 5))
+
 //
 //
 // -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
@@ -181,3 +200,35 @@ document.writeln(isValid('some.email@gmail.com'));
 // - знайти книжку/ки які писали 2 автори
 // - знайти книжку/ки які писав 1 автор
 // - вісортувати книжки по кількості сторінок по зростанню
+let books = [
+    {name: 'What', pages: 23, authors: ['Sam', 'Frodo', 'Bilbo'], genres: ['fiction']},
+    {name: 'Is', pages: 14, authors: ['Baby'], genres: ['fantasy', 'sci-fi']},
+    {name: 'Love', pages: 8, authors: ['Dont'], genres: ['romance']},
+    {name: '?', pages: 132, authors: ['Hurt', 'Me'], genres: ['fiction', 'fantasy', 'westerns']}
+]
+let findBiggest = books => {
+    let biggest = books.sort((a, b) => b.pages - a.pages)[0];
+    return books.filter(value => value.pages === biggest.pages);
+}
+console.log(findBiggest(books));
+
+let findGenres = books => {
+    let biggest = books.sort((a, b) => b.genres.length - a.genres.length)[0];
+    return books.filter(value => value.genres.length === biggest.genres.length);
+}
+console.log(findGenres(books));
+
+let findLongest = books => {
+    let biggest = books.sort((a, b) => b.name.length - a.name.length)[0];
+    return books.filter(value => value.name.length === biggest.name.length);
+}
+console.log(findLongest(books));
+
+let twoAuthors = books.filter(value => value.authors.length === 2);
+console.log(twoAuthors);
+
+let oneAuthor = books.filter(value => value.authors.length === 1);
+console.log(oneAuthor);
+
+let sorted = books.sort((a, b) => a.pages - b.pages);
+console.log(sorted);
