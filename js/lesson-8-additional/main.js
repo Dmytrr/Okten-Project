@@ -5,7 +5,7 @@ let getClasses = (document) => {
     for (const collectionElement of collection) {
         let elementClasses = collectionElement.classList;
         for (const elementClass of elementClasses) {
-            if (!allClasses.find(item => item === elementClass))
+            // if (!allClasses.find(item => item === elementClass)) щоби не було повторів
                 allClasses.push(elementClass);
         }
         getClasses(collectionElement);
