@@ -5,7 +5,7 @@ let getClasses = (document) => {
     for (const collectionElement of collection) {
         let elementClasses = collectionElement.classList;
         for (const elementClass of elementClasses) {
-            // if (!allClasses.find(item => item === elementClass)) щоби не було повторів
+            // if (!allClasses.find(item => item === elementClass)) remove dublicates, видалити дублікати
                 allClasses.push(elementClass);
         }
         getClasses(collectionElement);
