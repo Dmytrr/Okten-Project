@@ -277,7 +277,11 @@ console.log(myObj);
 //     зробити div contenteditable ввести будь яке ціле слово. та при натисканні табуляції перетворити його на подвійний тег
 // asd ->tab-> <asd></asd>
 
-const myDiv = document.createElement('div');
-myDiv.setAttribute('name', 'contenteditable');
-myDiv.textContent = 'trick';
-myDiv.onkeydown
+// const myDiv = document.createElement('div');
+// myDiv.setAttribute('name', 'contenteditable');
+// myDiv.textContent = 'trick';
+// document.body.append(myDiv);
+// myDiv.onkeydown = function () {
+//     myDiv.textContent = `<trick></trick>`;
+// }
+// doesn't work :(
