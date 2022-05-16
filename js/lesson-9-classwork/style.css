@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    margin: 7px;
+    border: 3px solid cornflowerblue;
+    padding: 7px;
+}
+.month, .hour{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    margin: 7px;
+    border: 3px solid cornflowerblue;
+    padding: 7px;
+}
+.modules{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 7px;
+    border: 3px solid cornflowerblue;
+    padding: 7px;
+}
+.li{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 7px;
+    border: 3px solid cornflowerblue;
+    padding: 7px;
+}
+.mAndH{
+    display: flex;
+    flex-direction: row;
+}

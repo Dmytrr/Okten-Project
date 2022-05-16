@@ -54,7 +54,6 @@ for (const pers of simpsons) {
     document.body.appendChild(myDiv);
     for (const key in pers) {
         const myDiv2 = document.createElement('div');
-        myDiv2.innerText = `${key}  ${pers[key]}`;
         myDiv.appendChild(myDiv2);
     }
 }
@@ -136,31 +135,37 @@ for (const obj of coursesArray) {
     const myDiv = document.createElement('div');
     document.body.appendChild(myDiv);
     const monthAndHour = document.createElement('div');
+    monthAndHour.setAttribute('class', 'mAndH');
     for (const key in obj) {
         if (key === 'title'){
             const title = document.createElement('div');
             title.innerText = obj[key];
+            title.setAttribute('class', 'title');
             myDiv.appendChild(title);
         }
         if (key === 'monthDuration'){
             const month = document.createElement('div');
             month.innerText = obj.monthDuration;
+            month.setAttribute('class', 'month');
             myDiv.appendChild(monthAndHour);
             monthAndHour.appendChild(month);
         }
         if (key === 'hourDuration'){
             const hour = document.createElement('div');
             hour.innerText = obj.hourDuration;
+            hour.setAttribute('class', 'hour');
             monthAndHour.appendChild(hour);
         }
         if (key === 'modules'){
             const modules = document.createElement('div');
+            modules.setAttribute('class', 'modules');
             const ul = document.createElement('ul');
             myDiv.appendChild(modules);
             modules.appendChild(ul);
             for (const module of obj[key]) {
                 const li = document.createElement('li');
                 li.innerText = module;
+                li.setAttribute('class', 'li');
                 ul.appendChild(li);
             }
         }
