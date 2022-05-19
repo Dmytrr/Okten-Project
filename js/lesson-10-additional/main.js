@@ -54,10 +54,11 @@ myButton2.onclick = function () {
 // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 //
 const disappear = myButton.cloneNode(true);
-disappear.innerText = 'disappear me';
+disappear.innerText = 'dis appear me';
 document.body.append(disappear);
 disappear.onclick = function () {
     disappear.style.visibility = 'hidden';
+    // disappear.hidden = true;
 }
 
 //
@@ -76,19 +77,43 @@ document.body.onclick = function (ev) {
 
 
 // -- взять массив пользователей
-let usersWithAddress = [
-    {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-    {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-    {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-    {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-    {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-    {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-    {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-    {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-    {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-];
+let usersWithAddress = [{
+    id: 1,
+    name: 'vasya',
+    age: 31,
+    status: false,
+    address: {city: 'Lviv', street: 'Shevchenko', number: 16}
+}, {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}}, {
+    id: 3,
+    name: 'kolya',
+    age: 29,
+    status: true,
+    address: {city: 'Lviv', street: 'Shevchenko', number: 121}
+}, {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}}, {
+    id: 5,
+    name: 'max',
+    age: 30,
+    status: true,
+    address: {city: 'Lviv', street: 'Shevchenko', number: 115}
+}, {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}}, {
+    id: 7,
+    name: 'oleg',
+    age: 28,
+    status: false,
+    address: {city: 'Ternopil', street: 'Shevchenko', number: 22}
+}, {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}}, {
+    id: 9,
+    name: 'masha',
+    age: 30,
+    status: true,
+    address: {city: 'Kyiv', street: 'Shevchenko', number: 12}
+}, {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}}, {
+    id: 11,
+    name: 'max',
+    age: 31,
+    status: true,
+    address: {city: 'Ternopil', street: 'Shevchenko', number: 121}
+}];
 // - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // 2й - оставляет старше 29 лет включительно
@@ -147,6 +172,37 @@ function myFn() {
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 //
+function traveler(element) {
+    if (!document.body.querySelector('#travelDiv')) {
+        const travelDiv = document.createElement('div');
+        travelDiv.setAttribute('id', 'travelDiv');
+        document.body.appendChild(travelDiv);
+        const p = document.createElement('p');
+        p.setAttribute('id', 'travelP');
+        const button1 = document.createElement('button');
+        button1.setAttribute('id', 'previous');
+        button1.innerText = 'broken';
+        const button2 = document.createElement('button');
+        button2.setAttribute('id', 'next');
+        button2.innerText = 'next';
+        travelDiv.append(p, button1, button2);
+    }
+    travelP.innerText = element;
+    next.onclick = function () {
+        element.firstChild ? traveler(element.firstChild) : element.nextElementSibling ? traveler(element.nextElementSibling) : traveler(comeBack(element));
+    }
+
+    function comeBack(element) {
+        if (element.parentElement.nextElementSibling) {
+            return element.parentElement.nextElementSibling;
+        } else {
+            comeBack(element.parentElement);
+        }
+    }
+}
+
+traveler(document.body);
+
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 //
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
