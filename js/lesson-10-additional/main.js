@@ -201,7 +201,7 @@ function traveler(element) {
     }
 
     previous.onclick = function () {
-        element.previousElementSibling ? traveler(element.previousElementSibling) : traveler(element.parentElement);
+        !element.previousElementSibling ? traveler(element.parentElement) : element.previousElementSibling.lastElementChild ? traveler(element.previousElementSibling.lastElementChild) : traveler(element.previousElementSibling);
     }
 
     function comeBack(element) {
