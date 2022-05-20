@@ -181,18 +181,29 @@ function traveler(element) {
         p.setAttribute('id', 'travelP');
         const button1 = document.createElement('button');
         button1.setAttribute('id', 'previous');
-        button1.innerText = 'broken';
+        button1.innerText = 'previous';
         const button2 = document.createElement('button');
         button2.setAttribute('id', 'next');
         button2.innerText = 'next';
         travelDiv.append(p, button1, button2);
     }
     travelP.innerText = element;
+
+    function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+    }
+
+    travelP.style.color = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
     const next = document.getElementById('next');
 
     next.onclick = function () {
         element.firstElementChild ? traveler(element.firstElementChild) : element.nextElementSibling ? traveler(element.nextElementSibling) : comeBack(element);
     }
+
+    previous.onclick = function () {
+        element.previousElementSibling ? traveler(element.previousElementSibling) : traveler(element.parentElement);
+    }
+
     function comeBack(element) {
         if (element.parentElement.nextElementSibling) {
             traveler(element.parentElement.nextElementSibling);
