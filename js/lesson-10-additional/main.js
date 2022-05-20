@@ -213,7 +213,7 @@ function traveler(element) {
     }
 }
 
-traveler(document.head);
+traveler(document.body);
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 //
