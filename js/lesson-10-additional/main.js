@@ -188,20 +188,21 @@ function traveler(element) {
         travelDiv.append(p, button1, button2);
     }
     travelP.innerText = element;
-    next.onclick = function () {
-        element.firstChild ? traveler(element.firstChild) : element.nextElementSibling ? traveler(element.nextElementSibling) : traveler(comeBack(element));
-    }
+    const next = document.getElementById('next');
 
+    next.onclick = function () {
+        element.firstElementChild ? traveler(element.firstElementChild) : element.nextElementSibling ? traveler(element.nextElementSibling) : comeBack(element);
+    }
     function comeBack(element) {
         if (element.parentElement.nextElementSibling) {
-            return element.parentElement.nextElementSibling;
+            traveler(element.parentElement.nextElementSibling);
         } else {
             comeBack(element.parentElement);
         }
     }
 }
 
-traveler(document.body);
+traveler(document.head);
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 //
