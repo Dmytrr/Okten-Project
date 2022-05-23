@@ -9,8 +9,12 @@ const unquotable = ['vodka', 'vova', 'benya', 'putin', 'medved'];
 const myInput = document.createElement('input');
 myInput.setAttribute('type', 'text');
 myInput.setAttribute('placeholder', 'enter something bad (vodka)');
+myInput.setAttribute('id', 'myInput');
 const myButton = document.createElement('button');
 myButton.setAttribute('class', ' buttonchik');
+myButton.setAttribute('id', ' myButton');
+myButton.style.width = '70px';
+myButton.style.height = '70px';
 myButton.innerText = 'click me';
 document.body.append(myInput, myButton);
 
@@ -66,15 +70,23 @@ disappear.onclick = function () {
 //     При лівому кліку миші вивести в консоль інформацію про блок або елемент на який відбувся клік.
 //     Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 //
-document.body.onclick = function (ev) {
-    console.log(ev.target);
+document.body.onclick = function (event) {
+    console.log('tag : '+ event.target.tagName);
+    for (const element of event.target.classList) {
+        console.log('class : ' + element);
+    }
+    console.log('id : ' + event.target.id);
+    console.log('width : ' + event.target.style.width);
+    console.log('height : ' + event.target.style.height);
 }
 
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 //
-
+// document.body.addEventListener('click',event => {
+//     alert(`tag : ${event.target.tagName}\nclass : ${event.target.classList[0]}\nid : ${event.target.id}`);
+// })
 
 // -- взять массив пользователей
 let usersWithAddress = [{
@@ -219,3 +231,6 @@ traveler(document.body);
 //
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+document.addEventListener("selectionchange",event=>{
+
+});
