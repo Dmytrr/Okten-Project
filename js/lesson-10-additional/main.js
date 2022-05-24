@@ -71,7 +71,7 @@ disappear.onclick = function () {
 //     Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 //
 document.body.onclick = function (event) {
-    console.log('tag : '+ event.target.tagName);
+    console.log('tag : ' + event.target.tagName);
     for (const element of event.target.classList) {
         console.log('class : ' + element);
     }
@@ -231,6 +231,9 @@ traveler(document.body);
 //
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
-document.addEventListener("selectionchange",event=>{
-
+document.addEventListener("click", () => {
+    const range = window.getSelection().getRangeAt(0);
+    const upperCase = range.toString().toUpperCase();
+    range.deleteContents();
+    range.insertNode(document.createTextNode(upperCase));
 });
