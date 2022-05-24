@@ -147,7 +147,7 @@ for (let i = 1; i < 4; i++) {
     myP.append(myLabel);
 }
 myLabel1.innerText = 'only false';
-myLabel2.innerText = 'only 28+';
+myLabel2.innerText = 'only 29+';
 myLabel3.innerText = 'only Kyiv';
 const usersDiv = document.createElement('div');
 document.body.append(usersDiv);
