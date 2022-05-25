@@ -32,7 +32,7 @@ const div = document.createElement('div');
 document.body.appendChild(div);
 const ref = document.createElement('a');
 ref.innerText = 'favorites.html';
-ref.setAttribute('href', 'http://localhost:63342/Okten-Project/js/lesson-11-additional/favorites.html');
+ref.setAttribute('href', './favorites.html');
 div.appendChild(ref);
 
 function setToLocal(user) {
