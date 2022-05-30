@@ -1,0 +1,26 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post {
+    width: 250px;
+    height: 250px;
+    background: bisque;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.userId, .id, .title, .body {
+    margin: 10px;
+}
+
+.title {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.body{
+    font-size: 12px;
+}
