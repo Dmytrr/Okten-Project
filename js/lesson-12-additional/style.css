@@ -1,0 +1,25 @@
+.user, .post {
+    display: flex;
+}
+
+.user {
+    background: lightcoral;
+}
+
+div {
+    margin-right: 20px;
+}
+
+button, .comment {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.postButton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post {
+    background: bisque;
+}
