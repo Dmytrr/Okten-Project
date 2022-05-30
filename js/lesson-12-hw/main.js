@@ -30,8 +30,10 @@ function showPosts(posts, count) {
 
         const myTitle = document.createElement('div');
         myTitle.setAttribute('class', 'title');
-        myTitle.innerText = posts[count + i].title;
+        const myH3 = document.createElement('h3');
+        myH3.innerText = posts[count + i].title;
         post.appendChild(myTitle);
+        myTitle.appendChild(myH3);
 
         const myBody = document.createElement('div');
         myBody.setAttribute('class', 'title');
@@ -46,3 +48,38 @@ function showPosts(posts, count) {
 //     Для кожного елементу свій блок div.comment
 // Всі характеристики повинні мати свої блоки всередені div.comment
 // https://jsonplaceholder.typicode.com/comments
+
+fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(response => response.json())
+    .then(json => {
+        for (const element of json) {
+            const comment = document.createElement('div');
+            comment.setAttribute('class', 'comment');
+            document.body.appendChild(comment);
+
+            const myPostId = document.createElement('div');
+            myPostId.setAttribute('class', 'postId');
+            myPostId.innerText = `postId : ${element.postId}`;
+            comment.appendChild(myPostId);
+
+            const myId = document.createElement('div');
+            myId.setAttribute('class', 'id2');
+            myId.innerText = `id : ${element.id}`;
+            comment.appendChild(myId);
+
+            const myName = document.createElement('div');
+            myName.setAttribute('class', 'name');
+            myName.innerText = `name : ${element.name}`;
+            comment.appendChild(myName);
+
+            // const myEmail = document.createElement('div');
+            // myEmail.setAttribute('class', 'email');
+            // myEmail.innerText = `email : ${element.email}`;
+            // comment.appendChild(myEmail);
+            //
+            // const myBody = document.createElement('div');
+            // myBody.setAttribute('class', 'body2');
+            // myBody.innerText = `body : ${element.body}`;
+            // comment.appendChild(myBody);
+        }
+    })

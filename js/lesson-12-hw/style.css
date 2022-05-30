@@ -18,9 +18,18 @@
 
 .title {
     font-size: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.body{
+.body {
     font-size: 12px;
+}
+
+.comment {
+    display: flex;
+    font-size: 16px;
+}
+
+.postId, .id2, .name, .email, .body2 {
+    margin-right: 20px;
 }
