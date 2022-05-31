@@ -23,3 +23,44 @@ button, .comment {
 .post {
     background: bisque;
 }
+
+div.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 170px;
+    height: 270px;
+    border: 1px solid black ;
+    text-align: center;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 65%;
+}
+
+.title {
+    height: 15%;
+    margin: 0;
+}
+
+.price, .cart {
+    height: 9%;
+    margin: 0;
+}
+
+.cart {
+    margin-left: 25%;
+}
+
+.refDiv {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: larger;
+}

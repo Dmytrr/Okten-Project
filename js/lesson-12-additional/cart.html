@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+    const main = document.createElement('div');
+    main.setAttribute('class', 'main');
+    document.body.appendChild(main);
+
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart) {
+        for (const product of cart) {
+            const myProduct = document.createElement('div');
+            myProduct.setAttribute('class', 'product');
+            main.appendChild(myProduct);
+
+            const myImage = document.createElement('img');
+            myImage.setAttribute('class', 'image');
+            myImage.setAttribute('src', `${product.images[0]}`);
+            myProduct.appendChild(myImage);
+
+            const myTitle = document.createElement('div');
+            myTitle.setAttribute('class', 'title');
+            myTitle.innerText = product.title;
+            myProduct.appendChild(myTitle);
+
+            const myPrice = document.createElement('div');
+            myPrice.setAttribute('class', 'price');
+            myPrice.innerText = product.price + '$';
+            myProduct.appendChild(myPrice);
+
+            const myCart = document.createElement('button');
+            myCart.setAttribute('class', 'cart');
+            myCart.innerText = 'Remove';
+            myProduct.appendChild(myCart);
+            myCart.onclick = () => {
+                let cart2 = JSON.parse(localStorage.getItem('cart'));
+                cart2 = cart2.filter(value => value.id !== product.id);
+                localStorage.setItem('cart', JSON.stringify(cart2));
+                myProduct.remove();
+            }
+        }
+    }
+
+    const removeAll = document.createElement('button');
+    removeAll.innerText = 'Remove all';
+    removeAll.onclick = () => {
+        localStorage.removeItem('cart');
+        main.remove();
+    }
+    document.body.appendChild(removeAll);
+</script>
+</body>
+</html>

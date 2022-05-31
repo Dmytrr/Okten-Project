@@ -105,3 +105,50 @@ fetch('https://jsonplaceholder.typicode.com/users')
 // створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.
 // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.
 //     До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар
+
+const main = document.createElement('div');
+main.setAttribute('class', 'main');
+document.body.appendChild(main);
+
+fetch('https://dummyjson.com/products')
+    .then(res => res.json())
+    .then(json => {
+        for (const product of json.products) {
+            const myProduct = document.createElement('div');
+            myProduct.setAttribute('class', 'product');
+            main.appendChild(myProduct);
+
+            const myImage = document.createElement('img');
+            myImage.setAttribute('class', 'image');
+            myImage.setAttribute('src', `${product.images[0]}`);
+            myProduct.appendChild(myImage);
+
+            const myTitle = document.createElement('div');
+            myTitle.setAttribute('class', 'title');
+            myTitle.innerText = product.title;
+            myProduct.appendChild(myTitle);
+
+            const myPrice = document.createElement('div');
+            myPrice.setAttribute('class', 'price');
+            myPrice.innerText = product.price + '$';
+            myProduct.appendChild(myPrice);
+
+            const myCart = document.createElement('button');
+            myCart.setAttribute('class', 'cart');
+            myCart.innerText = 'Add to Cart';
+            myProduct.appendChild(myCart);
+            myCart.onclick = () => {
+                const cart = JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [];
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+    });
+
+const div = document.createElement('div');
+div.setAttribute('class', 'refDiv');
+document.body.appendChild(div);
+const ref = document.createElement('a');
+ref.innerText = 'Go to Cart';
+ref.setAttribute('href', './cart.html');
+div.appendChild(ref);
