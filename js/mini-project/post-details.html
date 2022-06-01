@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/normalize.css">
+</head>
+<body>
+<script>
+    const postWrap2 = document.createElement('div');
+    postWrap2.setAttribute('class', 'postWrap2');
+    document.body.appendChild(postWrap2);
+    const commentWrap = document.createElement('div');
+    commentWrap.setAttribute('class', 'commentWrap');
+    document.body.appendChild(commentWrap);
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${localStorage.getItem('post')}`)
+        .then(response => response.json())
+        .then(json => {
+            for (const key in json) {
+                const postP2 = document.createElement('div');
+                postP2.setAttribute('class', 'postP2');
+                postP2.innerText = key + ' : ' + json[key];
+                postWrap2.appendChild(postP2);
+            }
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${localStorage.getItem('post')}/comments`)
+                .then(response => response.json())
+                .then(json => {
+                    for (const item of json) {
+                        const comment = document.createElement('div');
+                        comment.setAttribute('class', 'comment');
+                        commentWrap.appendChild(comment);
+                        for (const key in item) {
+                            const commentP = document.createElement('div');
+                            commentP.setAttribute('class', 'commentP');
+                            commentP.innerText = key + ' : ' + item[key];
+                            comment.appendChild(commentP);
+                        }
+                    }
+                })
+        })
+</script>
+</body>
+</html>

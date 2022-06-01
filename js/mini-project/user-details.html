@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/normalize.css">
+</head>
+<body>
+<script>
+    const userWrap = document.createElement('div');
+    userWrap.setAttribute('class', 'userWrap');
+    document.body.appendChild(userWrap);
+    const postWrap = document.createElement('div');
+    postWrap.setAttribute('class', 'postWrap');
+    document.body.appendChild(postWrap);
+
+    fetch(`https://jsonplaceholder.typicode.com/users/${localStorage.getItem('user')}`)
+        .then(response => response.json())
+        .then(json => {
+            showUser(json, userWrap);
+            const postButton = document.createElement('button');
+            postButton.setAttribute('class', 'postButton');
+            postButton.innerText = 'Posts of current user';
+            postButton.onclick = () => {
+                fetch(`https://jsonplaceholder.typicode.com/users/${json.id}/posts`)
+                    .then(response => response.json())
+                    .then(json => {
+                        for (const post of json) {
+                            const postP = document.createElement('div');
+                            postP.setAttribute('class', 'postP');
+                            postWrap.appendChild(postP);
+
+                            const titleP = document.createElement('div');
+                            titleP.setAttribute('class', 'titleP');
+                            titleP.innerText = post.title;
+                            postP.appendChild(titleP);
+
+                            const commentButton = document.createElement('button');
+                            commentButton.setAttribute('class', 'commentButton');
+                            commentButton.innerHTML = `<a href='./post-details.html'>Details</a>`;
+                            postP.appendChild(commentButton);
+                            commentButton.onclick = () => {
+                                localStorage.setItem('post', post.id);
+                            }
+                        }
+                    })
+            }
+            userWrap.appendChild(postButton);
+        })
+
+    function showUser(user, div) {
+        for (const key in user) {
+            if (typeof user[key] !== 'object') {
+                const userP = document.createElement('div');
+                userP.setAttribute('class', 'userP');
+                userP.innerText = key + ' : ' + user[key];
+                div.appendChild(userP);
+            } else {
+                const userP2 = document.createElement('div');
+                userP2.setAttribute('class', 'userP2');
+                userP2.innerText = key + ' : ';
+                div.appendChild(userP2);
+                showUser(user[key], userP2);
+            }
+        }
+    }
+</script>
+</body>
+</html>
